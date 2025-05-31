@@ -17,7 +17,7 @@ async function buscarRespuesta() {
   const respuestaDiv = document.getElementById("respuesta");
 
   try {
-    const res = await fetch("base-datos.csv");
+    const res = await fetch("base-datos.v2.csv");
     const csv = await res.text();
     const datos = parseCSV(csv);
 
