@@ -16,7 +16,7 @@ async function buscarRespuesta() {
   const pregunta = document.getElementById("pregunta").value.toLowerCase();
   const respuestaDiv = document.getElementById("respuesta");
 
-  const res = await fetch("https://docs.google.com/spreadsheets/d/195aasL8eNEOQusiWZz9HK8Ab4zKkuAze7M0_Agh2bz4/edit?gid=0#gid=0");
+  const res = await fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vSb2M2TyIoVqTLvUin4ofWRhL9jf7Shf2Set3KFxktHeYwwUM0B1F7ylO0D7-Yn63ZjEld2FXDlGi6Z/pubhtml");
   const csv = await res.text();
   const datos = parseCSV(csv);
 
