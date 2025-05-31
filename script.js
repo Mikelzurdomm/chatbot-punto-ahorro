@@ -16,7 +16,7 @@ async function buscarRespuesta() {
   const pregunta = document.getElementById("pregunta").value.toLowerCase();
   const respuestaDiv = document.getElementById("respuesta");
 
-  const res = await fetch("base-datos.csv");
+  const res = await fetch("https://docs.google.com/spreadsheets/d/195aasL8eNEOQusiWZz9HK8Ab4zKkuAze7M0_Agh2bz4/edit?gid=0#gid=0");
   const csv = await res.text();
   const datos = parseCSV(csv);
 
