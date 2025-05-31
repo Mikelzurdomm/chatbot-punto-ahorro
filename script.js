@@ -21,17 +21,17 @@ async function buscarRespuesta() {
     const csv = await res.text();
     const datos = parseCSV(csv);
 
-    let respuestaEncontrada = null;
+    let respuestas = [];
 
     for (const entrada of datos) {
       if (entrada.keywords.some(k => pregunta.includes(k) || k.includes(pregunta))) {
-        respuestaEncontrada = entrada.respuesta;
-        break;
+        respuestas.push(`🟢 <strong>${entrada.tema}</strong>: ${entrada.respuesta}`);
       }
     }
 
-    respuestaDiv.innerText = respuestaEncontrada ||
-      "❌ No tengo datos suficientes para responder con seguridad. Intenta reformular tu pregunta.";
+    respuestaDiv.innerHTML = respuestas.length > 0
+      ? respuestas.join("<br><br>")
+      : "❌ No tengo datos suficientes para responder con seguridad. Intenta reformular tu pregunta.";
 
   } catch (error) {
     respuestaDiv.innerText = "⚠️ Error al cargar la base de datos. Verifica tu conexión o URL del CSV.";
