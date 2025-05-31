@@ -70,6 +70,10 @@ async function buscarRespuesta() {
     // Paso 2: Pedir a GPT que seleccione keywords relevantes
     const keywordsGPT = await extraerKeywordsConGPT(pregunta, allKeywords);
     console.log("🔍 GPT seleccionó:", keywordsGPT);
+    const debugDiv = document.createElement("div");
+debugDiv.innerHTML = `<br><em>🔎 GPT detectó estas palabras clave:</em> <code>${keywordsGPT.join(", ")}</code>`;
+respuestaDiv.appendChild(debugDiv);
+
 
     // Paso 3: Filtrar respuestas que contienen alguna keyword coincidente
     const respuestas = datos.filter(entrada =>
